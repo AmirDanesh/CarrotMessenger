@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{D0DC6F30-1A9B-4129-A8A5-44E047250838}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CarrotMessenger", "CarrotMessenger", "{A698FBCD-2DCC-46A3-99F9-7C7195E9BD5F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CarrotMessenger.Edge", "CarrotMessenger.Edge", "{A698FBCD-2DCC-46A3-99F9-7C7195E9BD5F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{11BD4CB4-F25B-4C51-AE14-51BCA3278004}"
 EndProject
