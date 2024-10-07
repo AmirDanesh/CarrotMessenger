@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarrotMessenger.Api", "src\CarrotMessenger.Api\CarrotMessenger.Api.csproj", "{04CDAE58-61CF-42CD-AB8C-10ACF575B91B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarrotMessenger.Api", "src\CarrotMessenger.Api\CarrotMessenger.Api.csproj", "{04CDAE58-61CF-42CD-AB8C-10ACF575B91B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{818E5468-8A81-4BA1-BF62-91C1C115919B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,6 +20,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{04CDAE58-61CF-42CD-AB8C-10ACF575B91B} = {818E5468-8A81-4BA1-BF62-91C1C115919B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6AC92F59-96CD-4F57-8E6C-9C1D38548203}
