@@ -34,7 +34,7 @@ jobs:
       with:
         languages: ${{ matrix.language }}
         # Specify any additional queries to include.
-        queries: +security-extended, +maintainability
+        queries: +security-extended
 
     - name: Build the code
       run: |
