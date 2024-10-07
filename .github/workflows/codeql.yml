@@ -6,9 +6,6 @@ on:
   pull_request:
     # The branches to run pull request analysis on.
     branches: [ "main" ]
-  schedule:
-    # Run on a schedule to catch any vulnerabilities introduced in dependencies.
-    - cron: "0 3 * * 1"
 
 jobs:
   analyze:
