@@ -19,13 +19,7 @@ public static class ServiceBuilderExtensions
 {
     public static void AddApplicationDbConnection(this WebApplicationBuilder builder, string migrationAssemblyName)
     {
-        builder.Services.AddDbContext<CarrotMessengerIdentityDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("dev"),
-            optionsBuilder =>
-            {
-                optionsBuilder.CommandTimeout(15000);
-                optionsBuilder.MigrationsAssembly(migrationAssemblyName);
-            }
-        ));
+        builder.Services.AddDbContext<CarrotMessengerIdentityDbContext>(options => options.UseInMemoryDatabase("CarrotMessengerDb"));
     }
 
     public static void AddApplicationIdentity(this WebApplicationBuilder builder)
@@ -91,7 +85,7 @@ public static class ServiceBuilderExtensions
 
             var saltedPassword = signInRequest.Password + user.PasswordSalt;
             var result = await signInManager.CheckPasswordSignInAsync(user, saltedPassword, true);
-            if(result.IsLockedOut)
+            if (result.IsLockedOut)
                 return Results.BadRequest("Invalid email or password.");
             if (!result.Succeeded)
                 return Results.BadRequest("Invalid email or password.");
