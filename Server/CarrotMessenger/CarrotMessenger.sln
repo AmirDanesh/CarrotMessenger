@@ -7,6 +7,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarrotMessenger.Api", "src\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{818E5468-8A81-4BA1-BF62-91C1C115919B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarrotMessenger.Application", "src\CarrotMessenger.Application\CarrotMessenger.Application.csproj", "{D6392ECF-64B3-4A0F-B291-D265A26E506B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarrotMessenger.Domain", "src\CarrotMessenger.Domain\CarrotMessenger.Domain.csproj", "{2275BEF4-BB84-4C78-B4E4-ADF2929963E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarrotMessenger.Infrastructure", "src\CarrotMessenger.Infrastructure\CarrotMessenger.Infrastructure.csproj", "{AD73796A-1E31-44EE-8F41-E3BAEB6D301C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarrotMessenger.Identity", "src\CarrotMessenger.Identity\CarrotMessenger.Identity.csproj", "{EC0B1F92-3DA4-43BA-9BDF-04C54DD95A54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +25,32 @@ Global
 		{04CDAE58-61CF-42CD-AB8C-10ACF575B91B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04CDAE58-61CF-42CD-AB8C-10ACF575B91B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04CDAE58-61CF-42CD-AB8C-10ACF575B91B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6392ECF-64B3-4A0F-B291-D265A26E506B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6392ECF-64B3-4A0F-B291-D265A26E506B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6392ECF-64B3-4A0F-B291-D265A26E506B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6392ECF-64B3-4A0F-B291-D265A26E506B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2275BEF4-BB84-4C78-B4E4-ADF2929963E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2275BEF4-BB84-4C78-B4E4-ADF2929963E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2275BEF4-BB84-4C78-B4E4-ADF2929963E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2275BEF4-BB84-4C78-B4E4-ADF2929963E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD73796A-1E31-44EE-8F41-E3BAEB6D301C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD73796A-1E31-44EE-8F41-E3BAEB6D301C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD73796A-1E31-44EE-8F41-E3BAEB6D301C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD73796A-1E31-44EE-8F41-E3BAEB6D301C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC0B1F92-3DA4-43BA-9BDF-04C54DD95A54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC0B1F92-3DA4-43BA-9BDF-04C54DD95A54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC0B1F92-3DA4-43BA-9BDF-04C54DD95A54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC0B1F92-3DA4-43BA-9BDF-04C54DD95A54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{04CDAE58-61CF-42CD-AB8C-10ACF575B91B} = {818E5468-8A81-4BA1-BF62-91C1C115919B}
+		{D6392ECF-64B3-4A0F-B291-D265A26E506B} = {818E5468-8A81-4BA1-BF62-91C1C115919B}
+		{2275BEF4-BB84-4C78-B4E4-ADF2929963E4} = {818E5468-8A81-4BA1-BF62-91C1C115919B}
+		{AD73796A-1E31-44EE-8F41-E3BAEB6D301C} = {818E5468-8A81-4BA1-BF62-91C1C115919B}
+		{EC0B1F92-3DA4-43BA-9BDF-04C54DD95A54} = {818E5468-8A81-4BA1-BF62-91C1C115919B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6AC92F59-96CD-4F57-8E6C-9C1D38548203}

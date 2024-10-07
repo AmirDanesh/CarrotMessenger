@@ -11,4 +11,15 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="appsettings.Development.json">
+      <DependentUpon>appsettings.json</DependentUpon>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CarrotMessenger.Application\CarrotMessenger.Application.csproj" />
+    <ProjectReference Include="..\CarrotMessenger.Identity\CarrotMessenger.Identity.csproj" />
+  </ItemGroup>
+
 </Project>
