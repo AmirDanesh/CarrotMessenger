@@ -1,3 +1,4 @@
+using CarrotMessenger.Api;
 using CarrotMessenger.Identity;
 using Microsoft.OpenApi.Models;
 
@@ -42,6 +43,8 @@ builder.Services.AddSwaggerGen(opt =>
         }
     });
 });
+
+builder.Services.AddHostedService<ListenerBackgroundService>();
 
 var app = builder.Build();
 
