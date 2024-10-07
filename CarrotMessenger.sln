@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{D0DC6F30-1A9B-4129-A8A5-44E047250838}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CarrotMessenger", "CarrotMessenger", "{A698FBCD-2DCC-46A3-99F9-7C7195E9BD5F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{11BD4CB4-F25B-4C51-AE14-51BCA3278004}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarrotMessenger.Api", "Server\CarrotMessenger\src\CarrotMessenger.Api\CarrotMessenger.Api.csproj", "{D839EB65-02DE-4FA0-9FAA-ED6F30CF03CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarrotMessenger.Application", "Server\CarrotMessenger\src\CarrotMessenger.Application\CarrotMessenger.Application.csproj", "{ADCC325C-031D-4CE1-85ED-C59951739B73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarrotMessenger.Domain", "Server\CarrotMessenger\src\CarrotMessenger.Domain\CarrotMessenger.Domain.csproj", "{48BD02B7-7366-4EB2-9624-398AECF52CE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarrotMessenger.Identity", "Server\CarrotMessenger\src\CarrotMessenger.Identity\CarrotMessenger.Identity.csproj", "{90F11F2A-61B7-49AB-B676-4A0DB187734C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarrotMessenger.Infrastructure", "Server\CarrotMessenger\src\CarrotMessenger.Infrastructure\CarrotMessenger.Infrastructure.csproj", "{919E7821-F7CB-4266-9505-BD675CBC7348}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D839EB65-02DE-4FA0-9FAA-ED6F30CF03CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D839EB65-02DE-4FA0-9FAA-ED6F30CF03CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D839EB65-02DE-4FA0-9FAA-ED6F30CF03CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D839EB65-02DE-4FA0-9FAA-ED6F30CF03CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADCC325C-031D-4CE1-85ED-C59951739B73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADCC325C-031D-4CE1-85ED-C59951739B73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADCC325C-031D-4CE1-85ED-C59951739B73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADCC325C-031D-4CE1-85ED-C59951739B73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48BD02B7-7366-4EB2-9624-398AECF52CE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48BD02B7-7366-4EB2-9624-398AECF52CE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48BD02B7-7366-4EB2-9624-398AECF52CE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48BD02B7-7366-4EB2-9624-398AECF52CE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90F11F2A-61B7-49AB-B676-4A0DB187734C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90F11F2A-61B7-49AB-B676-4A0DB187734C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90F11F2A-61B7-49AB-B676-4A0DB187734C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90F11F2A-61B7-49AB-B676-4A0DB187734C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{919E7821-F7CB-4266-9505-BD675CBC7348}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{919E7821-F7CB-4266-9505-BD675CBC7348}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{919E7821-F7CB-4266-9505-BD675CBC7348}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{919E7821-F7CB-4266-9505-BD675CBC7348}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A698FBCD-2DCC-46A3-99F9-7C7195E9BD5F} = {D0DC6F30-1A9B-4129-A8A5-44E047250838}
+		{11BD4CB4-F25B-4C51-AE14-51BCA3278004} = {A698FBCD-2DCC-46A3-99F9-7C7195E9BD5F}
+		{D839EB65-02DE-4FA0-9FAA-ED6F30CF03CE} = {11BD4CB4-F25B-4C51-AE14-51BCA3278004}
+		{ADCC325C-031D-4CE1-85ED-C59951739B73} = {11BD4CB4-F25B-4C51-AE14-51BCA3278004}
+		{48BD02B7-7366-4EB2-9624-398AECF52CE3} = {11BD4CB4-F25B-4C51-AE14-51BCA3278004}
+		{90F11F2A-61B7-49AB-B676-4A0DB187734C} = {11BD4CB4-F25B-4C51-AE14-51BCA3278004}
+		{919E7821-F7CB-4266-9505-BD675CBC7348} = {11BD4CB4-F25B-4C51-AE14-51BCA3278004}
+	EndGlobalSection
+EndGlobal
