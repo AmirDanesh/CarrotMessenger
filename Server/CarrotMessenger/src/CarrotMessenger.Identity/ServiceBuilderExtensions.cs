@@ -77,7 +77,6 @@ public static class ServiceBuilderExtensions
     {
         app.UseAuthentication();
         app.UseAuthorization();
-        app.MapGroup("/account").WithTags("Identity").MapIdentityApi<ApplicationUser>();
         app.MapIdentityRoutes();
         return app;
     }
