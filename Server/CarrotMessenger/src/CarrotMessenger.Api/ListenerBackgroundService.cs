@@ -7,11 +7,17 @@ namespace CarrotMessenger.Api
 {
     public class ListenerBackgroundService : IHostedService
     {
+        public ListenerBackgroundService(abbas _abbas)
+        {
+            _abbas.asas();
+        }
         public async Task StartAsync(CancellationToken cancellationToken)
         {
             var listener = new HttpListener();
             listener.Prefixes.Add("http://*:5000/");
             listener.Start();
+
+            Amir();
 
             while (true)
             {
@@ -75,6 +81,7 @@ namespace CarrotMessenger.Api
 
         public Task StopAsync(CancellationToken cancellationToken)
         {
+            abbas a = null;
             Console.WriteLine("Service Stopped");
             return Task.CompletedTask;
         }
@@ -82,6 +89,6 @@ namespace CarrotMessenger.Api
 
     public interface abbas
     {
-
+        int asas();
     }
 }
