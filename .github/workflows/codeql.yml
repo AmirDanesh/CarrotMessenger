@@ -29,16 +29,15 @@ jobs:
       uses: github/codeql-action/init@v3
       with:
         languages: ${{ matrix.language }}
-        queries: +security-extended, ./.github/codeql/queries/AsyncMethodNaming.ql
-
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v3
-      with:
-        category: "clean-code"
+        queries: +security-extended, ./.github/codeql/queries/*.ql
 
     - name: Build the code
       run: |
         dotnet restore
         dotnet build --configuration Release
-
+        
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v3
+      with:
+        categories: "clean-code, security"
 
