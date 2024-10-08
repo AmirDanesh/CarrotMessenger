@@ -8,17 +8,18 @@
         Title="Carrot Messenger" Height="500" Width="600">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="Carrot Messenger" TextAlignment="Center" Height="25px" VerticalAlignment="Top"/>
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="Carrot Messenger" TextAlignment="Center"
+                   Height="25px" VerticalAlignment="Top" />
 
-        <ListView x:Name="ChatList" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Messages}" 
+        <ListView x:Name="MessageList" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Messages}"
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -31,17 +32,38 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ListBox Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
-            <ListBoxItem>Item 1</ListBoxItem>
-            <ListBoxItem>Item 2</ListBoxItem>
-        </ListBox>
+        <Grid Grid.Row="1" Grid.Column="0" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <TextBox Text="{Binding ContactFilter}" Width="150"></TextBox>
+                <Button Content="find" Command="{Binding FilterContactsCommand}"></Button>
+            </StackPanel>
+            <ListView Grid.Row="1" ItemsSource="{Binding ChatList}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel>
+                            <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="25" />
+                            <TextBlock Text=" (" />
+                            <TextBlock Text="{Binding StatusName}" TextDecorations="Underline" Foreground="Blue"
+                                       Cursor="Hand" />
+                            <TextBlock Text=")" />
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+
         <Grid Grid.Row="2" Grid.Column="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="50" />
             </Grid.ColumnDefinitions>
-            <TextBox HorizontalAlignment="Stretch" MaxLines="3" TextWrapping="Wrap" AcceptsReturn="True" Text="{Binding MessageText}"/>
-            <Button Grid.Column="1" Content="send" Command="{Binding SendMessageCommand}"/>
+            <TextBox HorizontalAlignment="Stretch" MaxLines="3" TextWrapping="Wrap" AcceptsReturn="True"
+                     Text="{Binding MessageText}" />
+            <Button Grid.Column="1" Content="send" Command="{Binding SendMessageCommand}" />
         </Grid>
     </Grid>
 </Window>

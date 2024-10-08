@@ -15,7 +15,7 @@ namespace CarrotMessenger.Wpf
             InitializeComponent();
             ViewModel = new MainWindowViewModel();
             DataContext = ViewModel;
-            ChatList.DataContext = ViewModel;
+            MessageList.DataContext = ViewModel;
         }
     }
 }
