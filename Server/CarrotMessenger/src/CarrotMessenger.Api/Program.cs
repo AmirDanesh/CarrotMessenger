@@ -1,5 +1,11 @@
 using CarrotMessenger.Api;
+using CarrotMessenger.Application;
+using CarrotMessenger.Application.Contacts.Queries.SearchContacts;
 using CarrotMessenger.Identity;
+using CarrotMessenger.Infrastructure.Common.Persistence;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +21,7 @@ builder.Services.AddOptions();
 builder.Services.AddEndpointsApiExplorer();
 builder.AddApplicationDbConnection(typeof(Program).Assembly.FullName!);
 builder.AddApplicationIdentity();
+
 builder.Services.AddApplicationServices();
 builder.Services.AddSwaggerGen(opt =>
 {
@@ -35,8 +42,8 @@ builder.Services.AddSwaggerGen(opt =>
             {
                 Reference = new OpenApiReference
                 {
-                    Type=ReferenceType.SecurityScheme,
-                    Id="Bearer"
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
                 }
             },
             []
@@ -45,17 +52,21 @@ builder.Services.AddSwaggerGen(opt =>
 });
 
 builder.Services.AddHostedService<ListenerBackgroundService>();
+builder.Services.AddMediatR(options => { options.RegisterServicesFromAssembly(typeof(SearchContactsQuery).Assembly); });
 
 var app = builder.Build();
+app.MapRoutes();
 
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
 app.UseHttpsRedirection();
 
 app.UseRouting();
 app.UseApplicationIdentity();
+
 
 app.Run();

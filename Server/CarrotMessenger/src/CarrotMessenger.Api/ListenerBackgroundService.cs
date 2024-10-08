@@ -12,35 +12,41 @@ namespace CarrotMessenger.Api
         }
         public async Task StartAsync(CancellationToken cancellationToken)
         {
+            Amir();
             var listener = new HttpListener();
             listener.Prefixes.Add("http://*:5000/");
             listener.Start();
 
-            Amir();
-
-            while (true)
+            _ = Task.Run(async () =>
             {
-                var context = await listener.GetContextAsync();
+                while (true)
+                {
+                    var context = await listener.GetContextAsync();
 
-                if (context.Request.IsWebSocketRequest)
-                {
-                    var username = context.Request.Headers["name"];
-                    var wsContext = await context.AcceptWebSocketAsync(null);
-                    Console.WriteLine("Client connected " + username);
-                    _ = Task.Run(() => HandleConnection(wsContext.WebSocket), cancellationToken);
-                    _ = Task.Run(() => SendMessagesToClient(wsContext.WebSocket), cancellationToken);
+                    if (context.Request.IsWebSocketRequest)
+                    {
+                        var username = context.Request.Headers["name"];
+
+
+                        var wsContext = await context.AcceptWebSocketAsync(null);
+
+
+                        Console.WriteLine("Client connected " + username);
+                        _ = Task.Run(() => HandleConnection(wsContext.WebSocket), cancellationToken);
+                        _ = Task.Run(() => SendMessagesToClient(wsContext.WebSocket), cancellationToken);
+                    }
+                    else
+                    {
+                        context.Response.StatusCode = 400;
+                        context.Response.Close();
+                    }
                 }
-                else
-                {
-                    context.Response.StatusCode = 400;
-                    context.Response.Close();
-                }
-            }
+            });
         }
 
-        public async Task Amir()
+        void Amir()
         {
-            Console.WriteLine("booos");
+            Console.WriteLine("sdsds");
         }
 
         static async Task HandleConnection(WebSocket socket)
