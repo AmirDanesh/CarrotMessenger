@@ -6,13 +6,18 @@ namespace CarrotMessenger.Api
 {
     public class ListenerBackgroundService : IHostedService
     {
+        public ListenerBackgroundService(abbas _abbas)
+        {
+            _abbas.asas();
+        }
         public async Task StartAsync(CancellationToken cancellationToken)
         {
+            Amir();
             var listener = new HttpListener();
             listener.Prefixes.Add("http://*:5000/");
             listener.Start();
 
-            Task.Run(async () =>
+            _ = Task.Run(async () =>
             {
                 while (true)
                 {
@@ -37,6 +42,11 @@ namespace CarrotMessenger.Api
                     }
                 }
             });
+        }
+
+        void Amir()
+        {
+            Console.WriteLine("sdsds");
         }
 
         static async Task HandleConnection(WebSocket socket)
@@ -78,6 +88,7 @@ namespace CarrotMessenger.Api
 
         public Task StopAsync(CancellationToken cancellationToken)
         {
+            abbas a = null;
             Console.WriteLine("Service Stopped");
             return Task.CompletedTask;
         }
