@@ -4,6 +4,7 @@
  * @kind problem
  * @problem.severity warning
  * @id csharp/async-method-naming
+ * @tags clean-code
  */
 
 import csharp
