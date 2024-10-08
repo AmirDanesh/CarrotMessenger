@@ -4,6 +4,7 @@
  * @kind problem
  * @problem.severity error
  * @id csharp/unimplemented-interface
+ * @tags clean-code
  */
 
 import csharp
