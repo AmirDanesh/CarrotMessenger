@@ -29,7 +29,9 @@ jobs:
       uses: github/codeql-action/init@v2
       with:
         languages: ${{ matrix.language }}
-        queries: +security-extended, ./.github/codeql/queries
+        queries: |
+          +security-extended
+          ./.github/codeql/queries
 
     - name: Build the code
       run: |
