@@ -1,3 +1,5 @@
+name: "CodeQL Analysis"
+
 on:
   push:
     branches: [ "main" ]
@@ -27,13 +29,11 @@ jobs:
       uses: github/codeql-action/init@v2
       with:
         languages: ${{ matrix.language }}
-        queries: +security-extended, +async-method-naming
+        queries: +security-extended, ./.github/codeql/queries
 
     - name: Build the code
       run: |
-        # Restore dependencies
         dotnet restore
-        # Build the project
         dotnet build --configuration Release
 
     - name: Perform CodeQL Analysis
