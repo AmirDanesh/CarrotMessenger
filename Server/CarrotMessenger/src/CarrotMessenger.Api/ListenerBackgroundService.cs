@@ -12,16 +12,16 @@ namespace CarrotMessenger.Api
             var listener = new HttpListener();
             listener.Prefixes.Add("http://*:5000/");
             listener.Start();
-            
+
             while (true)
             {
                 var context = await listener.GetContextAsync();
 
                 if (context.Request.IsWebSocketRequest)
                 {
-                    var username= context.Request.Headers["name"];
+                    var username = context.Request.Headers["name"];
                     var wsContext = await context.AcceptWebSocketAsync(null);
-                    Console.WriteLine("Client connected " +username);
+                    Console.WriteLine("Client connected " + username);
                     _ = Task.Run(() => HandleConnection(wsContext.WebSocket), cancellationToken);
                     _ = Task.Run(() => SendMessagesToClient(wsContext.WebSocket), cancellationToken);
                 }
@@ -32,7 +32,12 @@ namespace CarrotMessenger.Api
                 }
             }
         }
-        
+
+        public async Task Amir()
+        {
+            Console.WriteLine("booos");
+        }
+
         static async Task HandleConnection(WebSocket socket)
         {
             byte[] buffer = new byte[1024];
@@ -73,5 +78,10 @@ namespace CarrotMessenger.Api
             Console.WriteLine("Service Stopped");
             return Task.CompletedTask;
         }
+    }
+
+    public interface abbas
+    {
+
     }
 }
