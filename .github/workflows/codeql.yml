@@ -1,10 +1,7 @@
-name: "CodeQL Analysis"
-
 on:
   push:
     branches: [ "main" ]
   pull_request:
-    # The branches to run pull request analysis on.
     branches: [ "main" ]
 
 jobs:
@@ -30,8 +27,7 @@ jobs:
       uses: github/codeql-action/init@v2
       with:
         languages: ${{ matrix.language }}
-        # Specify any additional queries to include.
-        queries: +security-extended
+        queries: +security-extended, +async-method-naming
 
     - name: Build the code
       run: |
