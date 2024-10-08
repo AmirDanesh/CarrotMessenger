@@ -93,9 +93,4 @@ namespace CarrotMessenger.Api
             return Task.CompletedTask;
         }
     }
-
-    public interface abbas
-    {
-        int asas();
-    }
 }
