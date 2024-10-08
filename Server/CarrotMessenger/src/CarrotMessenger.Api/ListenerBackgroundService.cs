@@ -22,24 +22,19 @@ namespace CarrotMessenger.Api
             {
                 var context = await listener.GetContextAsync();
 
-                    if (context.Request.IsWebSocketRequest)
-                    {
-                        var username = context.Request.Headers["name"];
-                        var wsContext = await context.AcceptWebSocketAsync(null);
-                        Console.WriteLine("Client connected " + username);
-                        _ = Task.Run(() => HandleConnection(wsContext.WebSocket), cancellationToken);
-                        _ = Task.Run(() => SendMessagesToClient(wsContext.WebSocket), cancellationToken);
-                    }
-                    else
-                    {
-                        context.Response.StatusCode = 400;
-                        context.Response.Close();
-                    }
+                if (context.Request.IsWebSocketRequest)
+                {
+                    var username = context.Request.Headers["name"];
+                    var wsContext = await context.AcceptWebSocketAsync(null);
+                    Console.WriteLine("Client connected " + username);
+                    _ = Task.Run(() => HandleConnection(wsContext.WebSocket), cancellationToken);
+                    _ = Task.Run(() => SendMessagesToClient(wsContext.WebSocket), cancellationToken);
                 }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
+                else
+                {
+                    context.Response.StatusCode = 400;
+                    context.Response.Close();
+                }
             }
         }
 
