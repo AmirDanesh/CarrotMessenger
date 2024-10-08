@@ -29,7 +29,7 @@ jobs:
       uses: github/codeql-action/init@v3
       with:
         languages: ${{ matrix.language }}
-        queries: +security-extended, ./.github/codeql/queries
+        queries: +security-extended, ./.github/codeql/queries/AsyncMethodNaming.ql, ./.github/codeql/queries/UnimplementedInterfaces.ql
 
     - name: Build the code
       run: |
@@ -38,6 +38,4 @@ jobs:
         
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
-      with:
-        category: "clean-code, security"
 
