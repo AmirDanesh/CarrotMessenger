@@ -1,5 +1,4 @@
-﻿
-using System.Net;
+﻿using System.Net;
 using System.Net.WebSockets;
 using System.Text;
 
@@ -23,19 +22,24 @@ namespace CarrotMessenger.Api
             {
                 var context = await listener.GetContextAsync();
 
-                if (context.Request.IsWebSocketRequest)
-                {
-                    var username = context.Request.Headers["name"];
-                    var wsContext = await context.AcceptWebSocketAsync(null);
-                    Console.WriteLine("Client connected " + username);
-                    _ = Task.Run(() => HandleConnection(wsContext.WebSocket), cancellationToken);
-                    _ = Task.Run(() => SendMessagesToClient(wsContext.WebSocket), cancellationToken);
+                    if (context.Request.IsWebSocketRequest)
+                    {
+                        var username = context.Request.Headers["name"];
+                        var wsContext = await context.AcceptWebSocketAsync(null);
+                        Console.WriteLine("Client connected " + username);
+                        _ = Task.Run(() => HandleConnection(wsContext.WebSocket), cancellationToken);
+                        _ = Task.Run(() => SendMessagesToClient(wsContext.WebSocket), cancellationToken);
+                    }
+                    else
+                    {
+                        context.Response.StatusCode = 400;
+                        context.Response.Close();
+                    }
                 }
-                else
-                {
-                    context.Response.StatusCode = 400;
-                    context.Response.Close();
-                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
             }
         }
 
@@ -61,7 +65,8 @@ namespace CarrotMessenger.Api
                     Console.WriteLine($"Received: {message}");
                     string response = "Echo: " + message;
                     byte[] responseBuffer = Encoding.UTF8.GetBytes(response);
-                    await socket.SendAsync(new ArraySegment<byte>(responseBuffer), WebSocketMessageType.Text, true, CancellationToken.None);
+                    await socket.SendAsync(new ArraySegment<byte>(responseBuffer), WebSocketMessageType.Text, true,
+                        CancellationToken.None);
                 }
             }
         }
@@ -74,7 +79,8 @@ namespace CarrotMessenger.Api
                 if (!string.IsNullOrEmpty(message))
                 {
                     byte[] buffer = Encoding.UTF8.GetBytes(message);
-                    await socket.SendAsync(new ArraySegment<byte>(buffer), WebSocketMessageType.Text, true, CancellationToken.None);
+                    await socket.SendAsync(new ArraySegment<byte>(buffer), WebSocketMessageType.Text, true,
+                        CancellationToken.None);
                 }
             }
         }

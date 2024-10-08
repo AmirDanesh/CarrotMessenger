@@ -4,7 +4,6 @@ on:
   push:
     branches: [ "main" ]
   pull_request:
-    # The branches to run pull request analysis on.
     branches: [ "main" ]
 
 jobs:
@@ -27,20 +26,18 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v2
+      uses: github/codeql-action/init@v3
       with:
         languages: ${{ matrix.language }}
-        # Specify any additional queries to include.
-        queries: +security-extended
+        queries: +security-extended, ./.github/codeql/queries
 
     - name: Build the code
       run: |
-        # Restore dependencies
         dotnet restore
-        # Build the project
         dotnet build --configuration Release
-
+        
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v2
+      uses: github/codeql-action/analyze@v3
       with:
-        category: "security"
+        category: "clean-code, security"
+
