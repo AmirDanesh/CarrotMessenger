@@ -1,0 +1,45 @@
+name: .NET Code Quality and Build Checks
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build_and_analyze:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up .NET SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x' # Change to your project's .NET version
+
+      - name: Install dependencies
+        run: dotnet restore
+
+      - name: Build the project
+        run: dotnet build --no-restore --configuration Release
+
+      - name: Run custom code analysis
+        run: |
+          dotnet tool install --global dotnet-format
+          dotnet format --verify-no-changes
+          dotnet test --no-build --verbosity normal
+          # Run the custom scripts
+          ./scripts/async_method_check.sh
+          ./scripts/interface_implementation_check.sh
+          ./scripts/file_naming_check.sh
+
+      - name: Publish code analysis results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: code-analysis-results
+          path: code-analysis-results/
