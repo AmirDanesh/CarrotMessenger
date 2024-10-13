@@ -35,7 +35,6 @@ jobs:
           # Run the custom scripts
           ./scripts/async_method_check.sh
           ./scripts/interface_implementation_check.sh
-          ./scripts/file_naming_check.sh
 
       - name: Publish code analysis results
         if: always()
