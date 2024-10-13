@@ -22,4 +22,9 @@ public class UserRepository : IUserRepository
             .Select(x => new User(x.Id, x.UserName))
             .ToListAsync();
     }
+
+    public async Task AddUser(string query)
+    {
+        var user = await _userManager.Users.FirstOrDefaultAsync().ConfigureAwait(false);
+    }
 }
