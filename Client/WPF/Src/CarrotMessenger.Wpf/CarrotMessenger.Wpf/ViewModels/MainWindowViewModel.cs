@@ -30,7 +30,7 @@ namespace CarrotMessenger.Wpf.ViewModels
 
             _chatService = new ChatService();
             _getChatListService = new GetChatListService();
-            
+
             _chatService.RecievedMessageDelegate += (message) =>
             {
                 Application.Current.Dispatcher.BeginInvoke(() =>
